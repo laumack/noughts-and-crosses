@@ -10,12 +10,18 @@ function Square({ value, onSquareClick }) {
 }
 
 export default function Game() {
+    const [xIsNext, setXIsNext] = useState(true);
     const [squares, setSquares] = useState(Array(9).fill(null));
     
     function handleClick(i) {
         const nextSquares = squares.slice();
-        nextSquares[i] = "❌";
+        if (xIsNext) {
+            nextSquares[i] = "❌";
+        } else {
+            nextSquares[i] = "⭕";
+        }
         setSquares(nextSquares);
+        setXIsNext(!xIsNext);
     }
 
   return (
