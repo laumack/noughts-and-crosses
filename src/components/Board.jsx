@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { calculateWinner } from "../utils.js"
+import { calculateWinner } from "../utils"
 import "../styles.css";
 
 function Square({ value, onSquareClick }) {
@@ -10,9 +9,7 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-export default function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+export function Board({ xIsNext, squares, onPlay }) {
 
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
@@ -24,8 +21,7 @@ export default function Board() {
     } else {
       nextSquares[i] = "⭕";
     }
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   }
 
   const winner = calculateWinner(squares);

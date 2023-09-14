@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Board from "./components/Board";
+import Game from "./components/Game";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -7,7 +7,7 @@ export default function App() {
     <div id="page-container">
       <div id="content-wrap>">
         <Header />
-        <Board />
+        <Game />
       </div>
       <Footer />
     </div>
