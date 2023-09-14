@@ -1,16 +1,15 @@
-import { calculateWinner } from "../utils"
+import { calculateWinner } from "../utils";
 import "../styles.css";
 
 function Square({ value, onSquareClick }) {
   return (
-    <button className="square" type="button" onClick={onSquareClick}>
+    <button className="square" onClick={onSquareClick}>
       {value}
     </button>
   );
 }
 
 export function Board({ xIsNext, squares, onPlay }) {
-
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
       return;
@@ -53,4 +52,3 @@ export function Board({ xIsNext, squares, onPlay }) {
     </main>
   );
 }
-
